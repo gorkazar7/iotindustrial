@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.express as px
 
 # Incorporate data
-df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/gapminder2007.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/gorkazar7/iotindustrial/main/datasets/gapminder2007.csv')
 
 # Initialize the app - incorporate css
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
@@ -38,9 +38,7 @@ app.layout = html.Div([
     Input(component_id='my-radio-buttons-final', component_property='value')
 )
 def update_graph(col_chosen):
-    #fig = px.histogram(df, x='continent', y=col_chosen, histfunc='avg')
-    fig = px.pie(df, values=col_chosen, names='continent', title='Promedio de {} por continente'.format(col_chosen))
-
+    fig = px.histogram(df, x='continent', y=col_chosen, histfunc='avg')
     return fig
 
 # Run the app
